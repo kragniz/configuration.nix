@@ -36,6 +36,7 @@
     firefox
     git
     mosh
+    mpv
   ];
   
   programs.bash.enableCompletion = true;
@@ -47,7 +48,7 @@
     enable = true;
     layout = "us";
 
-    displayManager.auto.enable = true;
+    #displayManager.gdm.enable = true;
     desktopManager.gnome3.enable = true;
   };
   
