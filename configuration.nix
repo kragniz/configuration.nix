@@ -38,6 +38,7 @@
     git
     mosh
     mpv
+    gnumake
   ];
   
   programs.bash.enableCompletion = true;
