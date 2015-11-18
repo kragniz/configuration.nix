@@ -52,7 +52,6 @@
     #desktopManager.xfce.enable = true;
 
     displayManager.auto.enable = true;
-    displayManager.auto.user = true;
     desktopManager.gnome3.enable = true;
   };
   
