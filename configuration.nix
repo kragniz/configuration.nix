@@ -34,6 +34,8 @@
     vim
     tmux
     firefox
+    git
+    mosh
   ];
   
   programs.bash.enableCompletion = true;
