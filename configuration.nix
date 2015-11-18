@@ -15,6 +15,8 @@
 
   networking.hostName = "lambda-loli";
   networking.networkmanager.enable = true;
+  
+  powerManagement.enable = true;
 
   # Select internationalisation properties.
   i18n = {
@@ -33,6 +35,8 @@
     tmux
     firefox
   ];
+  
+  programs.bash.enableCompletion = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -41,12 +45,21 @@
     enable = true;
     layout = "us";
 
-    windowManager.default = "xmonad";
-    windowManager.xmonad.enable = true;
-    windowManager.xmonad.enableContribAndExtras = true;
-    displayManager.gdm.enable = true;
-    desktopManager.xfce.enable = true;
+    #windowManager.default = "xmonad";
+    #windowManager.xmonad.enable = true;
+    #windowManager.xmonad.enableContribAndExtras = true;
+    #displayManager.gdm.enable = true;
+    #desktopManager.xfce.enable = true;
+
+    displayManager.auto.enable = true;
+    displayManager.auto.user = true;
+    desktopManager.gnome3.enable = true;
   };
+  
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+  }
 
   users.mutableUsers = false;
   users.extraUsers.kragniz = {
