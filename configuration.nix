@@ -56,6 +56,8 @@
     nssmdns = true;
   };
 
+  hardware.trackpoint.emulateWheel = true;
+
   users.extraUsers.kragniz = {
     group = "users";
     extraGroups = [ "wheel" "networkmanager" ];
