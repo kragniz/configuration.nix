@@ -59,7 +59,7 @@
   services.avahi = {
     enable = true;
     nssmdns = true;
-  }
+  };
 
   users.mutableUsers = false;
   users.extraUsers.kragniz = {
