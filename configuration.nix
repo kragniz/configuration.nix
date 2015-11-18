@@ -17,6 +17,7 @@
   networking.networkmanager.enable = true;
   
   powerManagement.enable = true;
+  services.tlp.enable = true;
 
   # Select internationalisation properties.
   i18n = {
