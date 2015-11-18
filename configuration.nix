@@ -54,7 +54,6 @@
     nssmdns = true;
   };
 
-  users.mutableUsers = false;
   users.extraUsers.kragniz = {
     group = "users";
     extraGroups = [ "wheel" "networkmanager" ];
