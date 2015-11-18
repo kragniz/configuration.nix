@@ -45,12 +45,6 @@
     enable = true;
     layout = "us";
 
-    #windowManager.default = "xmonad";
-    #windowManager.xmonad.enable = true;
-    #windowManager.xmonad.enableContribAndExtras = true;
-    #displayManager.gdm.enable = true;
-    #desktopManager.xfce.enable = true;
-
     displayManager.auto.enable = true;
     desktopManager.gnome3.enable = true;
   };
@@ -73,5 +67,4 @@
 
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "16.03";
-
 }
