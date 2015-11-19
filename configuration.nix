@@ -41,6 +41,15 @@
     gnumake
     screenfetch
   ];
+
+  fonts = {
+    enableCoreFonts = true;
+    enableFontDir = true;
+    enableGhostscriptFonts = false;
+    fonts = [
+       pkgs.terminus_font
+    ];
+  };
   
   programs.bash.enableCompletion = true;
 
