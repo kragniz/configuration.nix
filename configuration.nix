@@ -39,6 +39,7 @@
     mosh
     mpv
     gnumake
+    screenfetch
   ];
   
   programs.bash.enableCompletion = true;
