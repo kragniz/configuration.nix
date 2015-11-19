@@ -40,6 +40,7 @@
     mpv
     gnumake
     screenfetch
+    vagrant
   ];
 
   fonts = {
@@ -55,6 +56,8 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  virtualisation.libvirtd.enable = true;
 
   services.xserver = {
     enable = true;
@@ -73,7 +76,7 @@
 
   users.extraUsers.kragniz = {
     group = "users";
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "libvirtd" ];
     home = "/home/kragniz";
     createHome = true;
     useDefaultShell = true;
