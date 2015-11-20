@@ -42,6 +42,9 @@
     screenfetch
     vagrant
     docker
+    python
+    python34
+    python35
     pythonPackages.docker_compose
   ];
 
