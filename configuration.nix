@@ -42,6 +42,7 @@
     screenfetch
     vagrant
     docker
+    pythonPackages.docker_compose
   ];
 
   fonts = {
