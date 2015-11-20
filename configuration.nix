@@ -41,6 +41,7 @@
     gnumake
     screenfetch
     vagrant
+    docker
   ];
 
   fonts = {
