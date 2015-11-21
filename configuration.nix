@@ -6,8 +6,6 @@
       ./hardware-configuration.nix
     ];
 
-  allowUnfree = true;
-
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
@@ -31,6 +29,15 @@
   # Set your time zone.
   time.timeZone = "Europe/London";
 
+  nixpkgs.config = {
+    allowUnfree = true;
+
+    chromium = {
+      enablePepperFlash = true;
+      enablePepperPDF = true;
+    };
+  };
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
@@ -48,6 +55,7 @@
     python34
     python35
     pythonPackages.docker_compose
+    chromium
   ];
 
   fonts = {
