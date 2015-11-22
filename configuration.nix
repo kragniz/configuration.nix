@@ -56,6 +56,8 @@
     python35
     pythonPackages.docker_compose
     chromium
+    inkscape
+    (texLiveAggregationFun { paths = [ texLive texLiveExtra texLiveBeamer lmodern ]; })
   ];
 
   fonts = {
