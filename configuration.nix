@@ -66,6 +66,7 @@
     enableGhostscriptFonts = false;
     fonts = [
        pkgs.terminus_font
+       pkgs.gdouros
     ];
   };
   
