@@ -46,6 +46,10 @@
     firefox
     git
     mosh
+
+    mutt
+    gnupg2
+
     mpv
     mplayer
     gnumake
@@ -58,6 +62,7 @@
     pythonPackages.docker_compose
     chromium
     inkscape
+
     (texLiveAggregationFun { paths = [ texLive texLiveExtra texLiveBeamer lmodern ]; })
   ];
 
@@ -67,6 +72,7 @@
     enableGhostscriptFonts = false;
     fonts = [
        pkgs.terminus_font
+       pkgs.kochi-substitute-naga10
     ];
   };
   
