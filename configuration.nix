@@ -47,6 +47,7 @@
     git
     mosh
     mpv
+    mplayer
     gnumake
     screenfetch
     vagrant
