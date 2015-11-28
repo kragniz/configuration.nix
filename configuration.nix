@@ -82,6 +82,7 @@
   services.openssh.enable = true;
 
   virtualisation.libvirtd.enable = true;
+  services.virtualboxHost.enable = true;
 
   services.xserver = {
     enable = true;
