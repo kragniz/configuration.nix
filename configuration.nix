@@ -48,7 +48,7 @@
     mosh
 
     mutt
-    gnupg2
+    gnupg
 
     mpv
     mplayer
