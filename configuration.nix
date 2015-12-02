@@ -15,6 +15,7 @@
 
   networking.hostName = "lambda-loli";
   networking.networkmanager.enable = true;
+  networking.extraHosts = "192.168.100.102 supplier.local\n192.168.100.101 app.local";
   
   powerManagement.enable = true;
   services.tlp.enable = true;
@@ -49,6 +50,7 @@
 
     mutt
     gnupg
+    gnupg1compat
 
     mpv
     mplayer
@@ -82,7 +84,8 @@
   services.openssh.enable = true;
 
   virtualisation.libvirtd.enable = true;
-  services.virtualboxHost.enable = true;
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "kragniz" ];
 
   services.xserver = {
     enable = true;
