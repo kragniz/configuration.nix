@@ -15,7 +15,7 @@
 
   networking.hostName = "lambda-loli";
   networking.networkmanager.enable = true;
-  networking.extraHosts = "192.168.100.102 supplier.local\n192.168.100.101 app.local";
+  networking.extraHosts = "192.168.100.102 example.local";
   
   powerManagement.enable = true;
   services.tlp.enable = true;
