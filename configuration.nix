@@ -104,15 +104,17 @@
 
   hardware.trackpoint.emulateWheel = true;
 
-  users.extraUsers.kragniz = {
-    group = "users";
-    extraGroups = [ "wheel" "networkmanager" "libvirtd" ];
+  users = {
     extraGroups.vboxusers.members = [ "kragniz" ];
-    home = "/home/kragniz";
-    createHome = true;
-    useDefaultShell = true;
-    password = "hunter2";
-    uid = 1000;
+    extraUsers.kragniz = {
+      group = "users";
+      extraGroups = [ "wheel" "networkmanager" "libvirtd" ];
+      home = "/home/kragniz";
+      createHome = true;
+      useDefaultShell = true;
+      password = "hunter2";
+      uid = 1000;
+    };
   };
 
   # The NixOS release to be compatible with for stateful data such as databases.
