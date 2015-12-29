@@ -18,7 +18,6 @@
   networking.extraHosts = "192.168.100.102 example.local";
   
   powerManagement.enable = true;
-  services.tlp.enable = true;
 
   # Select internationalisation properties.
   i18n = {
@@ -80,24 +79,29 @@
   
   programs.bash.enableCompletion = true;
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   virtualisation.libvirtd.enable = true;
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "kragniz" ];
 
-  services.xserver = {
-    enable = true;
-    layout = "us";
+  services = {
+    xserver = {
+      enable = true;
+      layout = "us";
 
-    #displayManager.gdm.enable = true;
-    desktopManager.gnome3.enable = true;
-  };
-  
-  services.avahi = {
-    enable = true;
-    nssmdns = true;
+      #displayManager.gdm.enable = true;
+      desktopManager.gnome3.enable = true;
+    };
+    avahi = {
+      enable = true;
+      nssmdns = true;
+    };
+    tlp = {
+      enable = true;
+    };
+    openssh = {
+      enable = true;
+    };
   };
 
   hardware.trackpoint.emulateWheel = true;
