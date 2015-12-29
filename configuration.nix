@@ -37,33 +37,43 @@
     };
   };
 
-  # $ nix-env -qaP | grep wget
-  environment.systemPackages = with pkgs; [
-    vim
-    tmux
-    firefox
-    git
-    mosh
+  environment = {
+    shells = [
+      "${pkgs.bash}/bin/bash"
+      "${pkgs.fish}/bin/fish"
+    ];
+    variables = {
+      BROWSER = pkgs.lib.mkOverride 0 "chromium";
+      EDITOR = pkgs.lib.mkOverride 0 "vim";
+    };
+    systemPackages = with pkgs; [
+      # $ nix-env -qaP | grep wget to find packages
+      vim
+      tmux
+      firefox
+      git
+      mosh
 
-    mutt
-    gnupg
-    gnupg1compat
+      mutt
+      gnupg
+      gnupg1compat
 
-    mpv
-    mplayer
-    gnumake
-    screenfetch
-    vagrant
-    docker
-    python
-    python34
-    python35
-    pythonPackages.docker_compose
-    chromium
-    inkscape
+      mpv
+      mplayer
+      gnumake
+      screenfetch
+      vagrant
+      docker
+      python
+      python34
+      python35
+      pythonPackages.docker_compose
+      chromium
+      inkscape
 
-    (texLiveAggregationFun { paths = [ texLive texLiveExtra texLiveBeamer lmodern ]; })
-  ];
+      (texLiveAggregationFun { paths = [ texLive texLiveExtra texLiveBeamer lmodern ]; })
+    ];
+  };
 
   fonts = {
     enableCoreFonts = true;
