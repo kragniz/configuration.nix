@@ -12,20 +12,20 @@
     loader.grub.device = "/dev/sda";
   };
 
-  networking.hostName = "lambda-loli";
-  networking.networkmanager.enable = true;
-  networking.extraHosts = "192.168.100.102 example.local";
+  networking = {
+    hostName = "lambda-loli";
+    networkmanager.enable = true;
+    extraHosts = "192.168.100.102 example.local";
+  };
   
   powerManagement.enable = true;
 
-  # Select internationalisation properties.
   i18n = {
     consoleFont = "Lat2-Terminus16";
     consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
   };
 
-  # Set your time zone.
   time.timeZone = "Europe/London";
 
   nixpkgs.config = {
@@ -37,7 +37,6 @@
     };
   };
 
-  # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
     vim
@@ -78,10 +77,10 @@
   
   programs.bash.enableCompletion = true;
 
-
-  virtualisation.libvirtd.enable = true;
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "kragniz" ];
+  virtualisation = {
+    libvirtd.enable = false;
+    virtualbox.host.enable = true;
+  };
 
   services = {
     xserver = {
@@ -108,6 +107,7 @@
   users.extraUsers.kragniz = {
     group = "users";
     extraGroups = [ "wheel" "networkmanager" "libvirtd" ];
+    extraGroups.vboxusers.members = [ "kragniz" ];
     home = "/home/kragniz";
     createHome = true;
     useDefaultShell = true;
