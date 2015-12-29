@@ -85,7 +85,14 @@
     ];
   };
   
-  programs.bash.enableCompletion = true;
+  programs = {
+    bash = {
+      enableCompletion = true;
+    };
+    ssh = {
+      startAgent = true;
+    };
+  };
 
   virtualisation = {
     libvirtd.enable = false;
