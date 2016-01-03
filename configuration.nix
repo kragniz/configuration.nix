@@ -73,6 +73,9 @@
 
       #(texLiveAggregationFun { paths = [ texLive texLiveExtra texLiveBeamer lmodern ]; })
     ];
+    gnome3 = {
+      packageSet = pkgs.gnome3_18;
+    };
   };
 
   fonts = {
