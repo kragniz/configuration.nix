@@ -107,7 +107,7 @@
       enable = true;
       layout = "us";
 
-      #displayManager.gdm.enable = true;
+      displayManager.gdm.enable = true;
       desktopManager.gnome3.enable = true;
     };
     avahi = {
