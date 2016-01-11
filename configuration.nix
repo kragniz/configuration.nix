@@ -7,9 +7,11 @@
     ];
 
   boot = {
-    loader.grub.enable = true;
-    loader.grub.version = 2;
-    loader.grub.device = "/dev/sda";
+    loader = {
+      grub.enable = true;
+      grub.version = 2;
+      grub.device = "/dev/sda";
+    };
     kernelPackages = pkgs.linuxPackages_4_3;
   };
 
