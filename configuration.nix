@@ -10,6 +10,7 @@
     loader.grub.enable = true;
     loader.grub.version = 2;
     loader.grub.device = "/dev/sda";
+    kernelPackages = pkgs.linuxPackages_4_3;
   };
 
   networking = {
