@@ -88,6 +88,7 @@
     fonts = [
        pkgs.terminus_font
        pkgs.kochi-substitute-naga10
+       pkgs.source-code-pro
     ];
   };
   
