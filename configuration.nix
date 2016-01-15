@@ -73,6 +73,7 @@
       pythonPackages.docker_compose
       chromium
       inkscape
+      file
 
       #(texLiveAggregationFun { paths = [ texLive texLiveExtra texLiveBeamer lmodern ]; })
     ];
