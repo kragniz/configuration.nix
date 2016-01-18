@@ -124,6 +124,13 @@
     openssh = {
       enable = true;
     };
+    redshift = {
+      enable = true;
+
+      # Aberystwyth
+      latitude = "52.416";
+      longitude = "-4.0837";
+    };
   };
 
   hardware.trackpoint.emulateWheel = true;
