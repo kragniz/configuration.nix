@@ -66,7 +66,6 @@
       gnumake
       screenfetch
       vagrant
-      docker
       python
       python34
       python35
@@ -104,6 +103,7 @@
 
   virtualisation = {
     libvirtd.enable = false;
+    docker.enable = true;
     virtualbox.host.enable = true;
   };
 
