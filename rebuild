@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
 sudo cp -v ./configuration.nix /etc/nixos/configuration.nix
+cp -v cp config.nix ~/.nixpkgs/config.nix
 sudo nixos-rebuild switch

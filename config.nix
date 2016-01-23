@@ -1,4 +1,6 @@
 {
+  allowUnfree = true;
+
   packageOverrides = pkgs: with pkgs; {
     openstackDev = pkgs.myEnvFun {
         name = "openstack-dev";
