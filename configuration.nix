@@ -131,7 +131,13 @@
     };
   };
 
-  hardware.trackpoint.emulateWheel = true;
+  hardware = {
+    trackpoint.emulateWheel = true;
+
+    # for steam
+    opengl.driSupport32Bit = true;
+    pulseaudio.support32Bit = true;
+  };
 
   users = {
     extraGroups.vboxusers.members = [ "kragniz" ];
