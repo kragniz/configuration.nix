@@ -18,7 +18,6 @@
   networking = {
     hostName = "lambda-loli";
     networkmanager.enable = true;
-    extraHosts = "192.168.100.102 example.local";
   };
   
   powerManagement.enable = true;
