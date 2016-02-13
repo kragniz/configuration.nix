@@ -62,6 +62,7 @@
 
       mpv
       mplayer
+      python35Packages.mps-youtube
       gnumake
       screenfetch
       vagrant
