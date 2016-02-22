@@ -73,6 +73,7 @@
       chromium
       inkscape
       file
+      sshuttle
 
       (texLiveAggregationFun { paths = [ texLive texLiveExtra texLiveBeamer lmodern ]; })
     ];
@@ -140,10 +141,9 @@
   };
 
   users = {
-    extraGroups.vboxusers.members = [ "kragniz" ];
     extraUsers.kragniz = {
       group = "users";
-      extraGroups = [ "wheel" "networkmanager" "libvirtd" ];
+      extraGroups = [ "wheel" "networkmanager" "libvirtd" "vboxusers" ];
       home = "/home/kragniz";
       createHome = true;
       useDefaultShell = true;
