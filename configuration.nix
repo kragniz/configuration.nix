@@ -12,7 +12,7 @@
       grub.version = 2;
       grub.device = "/dev/sda";
     };
-    kernelPackages = pkgs.linuxPackages_4_4;
+    kernelPackages = pkgs.linuxPackages_4_5;
   };
 
   networking = {
