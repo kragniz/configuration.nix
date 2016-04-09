@@ -62,20 +62,21 @@
 
       mpv
       mplayer
-      python35Packages.mps-youtube
+      #python35Packages.mps-youtube
       gnumake
       screenfetch
       vagrant
       python
       python34
       python35
-      pythonPackages.docker_compose
       chromium
       inkscape
       file
       sshuttle
 
-      (texLiveAggregationFun { paths = [ texLive texLiveExtra texLiveBeamer lmodern ]; })
+      wine
+
+      #(texLiveAggregationFun { paths = [ texLive texLiveExtra texLiveBeamer lmodern ]; })
     ];
   };
 
@@ -101,7 +102,7 @@
 
   virtualisation = {
     libvirtd.enable = false;
-    docker.enable = true;
+    #docker.enable = true;
     virtualbox.host.enable = true;
   };
 
