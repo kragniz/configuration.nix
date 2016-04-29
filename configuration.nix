@@ -30,6 +30,10 @@
                    127.0.0.1 sushigirl.tokyo
                    127.0.0.1 twitter.com
                    127.0.0.1 lobste.rs
+                   127.0.0.1 webm.website
+                   127.0.0.1 good.webm.website
+                   127.0.0.1 best.webm.website
+                   127.0.0.1 bad.webm.website
     '';
   };
   
