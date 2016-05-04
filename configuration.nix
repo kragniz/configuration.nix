@@ -18,23 +18,6 @@
   networking = {
     hostName = "lambda-loli";
     networkmanager.enable = true;
-    extraHosts = ''127.0.0.1 reddit.com
-                   127.0.0.1 www.reddit.com
-                   127.0.0.1 news.ycombinator.com
-                   127.0.0.1 boards.4chan.org
-                   127.0.0.1 lainchan.org
-                   127.0.0.1 facebook.com
-                   127.0.0.1 www.facebook.com
-                   127.0.0.1 smuglo.li
-                   127.0.0.1 8ch.net
-                   127.0.0.1 sushigirl.tokyo
-                   127.0.0.1 twitter.com
-                   127.0.0.1 lobste.rs
-                   127.0.0.1 webm.website
-                   127.0.0.1 good.webm.website
-                   127.0.0.1 best.webm.website
-                   127.0.0.1 bad.webm.website
-    '';
   };
   
   powerManagement.enable = true;
