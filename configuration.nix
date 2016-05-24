@@ -32,6 +32,7 @@
 
   nixpkgs.config = {
     allowUnfree = true;
+    allowBroken = true; 
 
     chromium = {
       enablePepperFlash = true;
@@ -76,7 +77,7 @@
 
       wine
 
-      (texLiveAggregationFun { paths = [ texLive texLiveExtra texLiveBeamer lmodern ]; })
+      #(texLiveAggregationFun { paths = [ texLive texLiveExtra texLiveBeamer lmodern ]; })
     ];
   };
 
@@ -144,7 +145,13 @@
   users = {
     extraUsers.kragniz = {
       group = "users";
-      extraGroups = [ "wheel" "networkmanager" "libvirtd" "vboxusers" ];
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+        "libvirtd"
+        "vboxusers"
+        "dialout"
+      ];
       home = "/home/kragniz";
       createHome = true;
       useDefaultShell = true;
