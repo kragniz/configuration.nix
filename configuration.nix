@@ -128,9 +128,9 @@
     redshift = {
       enable = true;
 
-      # Aberystwyth
-      latitude = "52.416";
-      longitude = "-4.0837";
+      # Cambridge
+      latitude = "52.2053";
+      longitude = "0.1218";
     };
   };
 
