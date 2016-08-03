@@ -51,7 +51,7 @@
     };
     systemPackages = with pkgs; [
       # $ nix-env -qaP | grep wget to find packages
-      vim
+      # vim
       tmux
       firefox
       git
@@ -76,6 +76,8 @@
       sshuttle
 
       wine
+
+      vim_configurable
 
       #(texLiveAggregationFun { paths = [ texLive texLiveExtra texLiveBeamer lmodern ]; })
     ];
