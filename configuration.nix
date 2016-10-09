@@ -106,7 +106,7 @@
 
   virtualisation = {
     libvirtd.enable = false;
-    #docker.enable = true;
+    docker.enable = true;
     virtualbox.host.enable = true;
   };
 
