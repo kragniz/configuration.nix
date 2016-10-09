@@ -53,6 +53,7 @@
       # $ nix-env -qaP | grep wget to find packages
       # vim
       tmux
+      screen
       firefox
       git
       mosh
