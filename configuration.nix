@@ -78,6 +78,7 @@
       sshuttle
 
       wine
+      steam
 
       vim_configurable
 
