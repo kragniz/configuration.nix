@@ -57,6 +57,7 @@
       firefox
       git
       mosh
+      fish
 
       mutt
       gnupg
