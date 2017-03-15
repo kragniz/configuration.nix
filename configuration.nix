@@ -115,8 +115,11 @@
       enable = true;
       layout = "us";
 
-      displayManager.gdm.enable = true;
-      desktopManager.gnome3.enable = true;
+      #displayManager.gdm.enable = true;
+      desktopManager = {
+        gnome3.enable = true;
+        default = "gnome3";
+      };
     };
     avahi = {
       enable = true;
