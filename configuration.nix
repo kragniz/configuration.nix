@@ -33,11 +33,6 @@
   nixpkgs.config = {
     allowUnfree = true;
     allowBroken = true; 
-
-    chromium = {
-      enablePepperFlash = true;
-      enablePepperPDF = true;
-    };
   };
 
   environment = {
@@ -63,6 +58,8 @@
       gnupg
       gnupg1compat
 
+      macchanger
+
       mpv
       mplayer
       #python35Packages.mps-youtube
@@ -79,10 +76,15 @@
 
       wine
       steam
+      discord
 
       vim_configurable
 
       #(texLiveAggregationFun { paths = [ texLive texLiveExtra texLiveBeamer lmodern ]; })
+      #texlive.combined.scheme-full
+      #texlive.combine {
+        #  inherit (texlive) scheme-small algorithms cm-super;
+        #}
     ];
   };
 
@@ -92,6 +94,7 @@
     enableGhostscriptFonts = false;
     fonts = [
        pkgs.terminus_font
+       pkgs.tewi-font
        pkgs.kochi-substitute-naga10
        pkgs.source-code-pro
     ];
@@ -140,6 +143,11 @@
       latitude = "52.2053";
       longitude = "0.1218";
     };
+    postgresql = {
+      enable = true;
+      package = pkgs.postgresql95;
+      #authentication = "local all all ident";
+   };
   };
 
   hardware = {
