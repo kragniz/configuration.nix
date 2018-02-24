@@ -12,15 +12,15 @@
       grub.version = 2;
       grub.device = "/dev/sda";
     };
-    kernelPackages = pkgs.linuxPackages_4_10;
+    kernelPackages = pkgs.linuxPackages_4_15;
   };
 
   networking = {
-    hostName = "lambda-loli";
+    hostName = "tachibana";
     networkmanager.enable = true;
   };
   
-  powerManagement.enable = true;
+  powerManagement.enable = false;
 
   i18n = {
     consoleFont = "Lat2-Terminus16";
@@ -47,6 +47,7 @@
     systemPackages = with pkgs; [
       # $ nix-env -qaP | grep wget to find packages
       # vim
+      vim_configurable
       tmux
       screen
       firefox
@@ -58,33 +59,19 @@
       gnupg
       gnupg1compat
 
-      macchanger
-
       mpv
       mplayer
-      #python35Packages.mps-youtube
       gnumake
       screenfetch
-      vagrant
       python
       python34
       python35
       chromium
       inkscape
       file
-      sshuttle
 
       wine
-      steam
-      discord
 
-      vim_configurable
-
-      #(texLiveAggregationFun { paths = [ texLive texLiveExtra texLiveBeamer lmodern ]; })
-      #texlive.combined.scheme-full
-      #texlive.combine {
-        #  inherit (texlive) scheme-small algorithms cm-super;
-        #}
     ];
   };
 
@@ -111,8 +98,8 @@
 
   virtualisation = {
     libvirtd.enable = false;
-    docker.enable = true;
-    virtualbox.host.enable = true;
+    docker.enable = false;
+    virtualbox.host.enable = false;
   };
 
   services = {
@@ -137,17 +124,12 @@
       enable = true;
     };
     redshift = {
-      enable = true;
+      enable = false;
 
       # Cambridge
       latitude = "52.2053";
       longitude = "0.1218";
     };
-    postgresql = {
-      enable = true;
-      package = pkgs.postgresql95;
-      #authentication = "local all all ident";
-   };
   };
 
   hardware = {
@@ -177,5 +159,5 @@
   };
 
   # The NixOS release to be compatible with for stateful data such as databases.
-  system.stateVersion = "16.03";
+  system.stateVersion = "18.03";
 }
