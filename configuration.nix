@@ -107,10 +107,29 @@
       enable = true;
       layout = "gb";
 
-      #displayManager.gdm.enable = true;
-      desktopManager = {
-        gnome3.enable = true;
-        default = "gnome3";
+      xrandrHeads = [
+        {
+          output = "VGA1";
+          primary = true;
+          monitorConfig = ''
+            Option "Rotate" "right"
+          '';
+        }
+        {
+          output = "HDMI1";
+          monitorConfig = ''
+            Option "Rotate" "right"
+            Option "RightOf" "VGA1"
+          '';
+        }
+      ];
+
+      screenSection = "Monitor \"multihead3\"";
+
+      windowManager = {
+        herbstluftwm = {
+          enable = true;
+        };
       };
     };
     avahi = {
