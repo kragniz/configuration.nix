@@ -109,6 +109,12 @@
 
       xrandrHeads = [
         {
+          output = "LVDS1";
+          monitorConfig = ''
+            Option "ignore" "true"
+          '';
+        }
+        {
           output = "VGA1";
           primary = true;
           monitorConfig = ''
