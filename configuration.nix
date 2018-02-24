@@ -105,7 +105,7 @@
   services = {
     xserver = {
       enable = true;
-      layout = "us";
+      layout = "gb";
 
       #displayManager.gdm.enable = true;
       desktopManager = {
