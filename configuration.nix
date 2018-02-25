@@ -181,6 +181,21 @@
       password = "hunter2";
       uid = 1000;
     };
+    extraUsers.kgz = {
+      group = "users";
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+        "libvirtd"
+        "vboxusers"
+        "dialout"
+      ];
+      home = "/home/kgz";
+      createHome = true;
+      useDefaultShell = true;
+      password = "hunter2";
+      uid = 1001;
+    };
   };
 
   # The NixOS release to be compatible with for stateful data such as databases.
