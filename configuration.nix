@@ -55,17 +55,17 @@
       mosh
       fish
 
+      gnome3.gnome_terminal
+
       mutt
       gnupg
       gnupg1compat
 
       mpv
-      mplayer
       gnumake
       screenfetch
       python
-      python34
-      python35
+      python36
       chromium
       inkscape
       file
