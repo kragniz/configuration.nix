@@ -17,7 +17,7 @@
 
   networking = {
     hostName = "tachibana";
-    networkmanager.enable = true;
+    networkmanager.enable = false;
   };
   
   powerManagement.enable = false;
