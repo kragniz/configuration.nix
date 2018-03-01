@@ -46,32 +46,50 @@
     };
     systemPackages = with pkgs; [
       # $ nix-env -qaP | grep wget to find packages
-      # vim
+
+      # dev
       vim_configurable
       tmux
+      tree
       screen
-      firefox
       git
       mosh
       fish
+      vscode
 
+      python
+      python36
+      go
+      dep
+      gnumake
+      minikube
+      kubectl
+
+      # desktop
       gnome3.gnome_terminal
+      gnome3.gnome-screenshot
+      gnome3.nautilus
+      gnome3.eog
+      gnome3.dconf
+      i3lock-color
+      feh
+      rofi
 
+      # email
       mutt
       gnupg
       gnupg1compat
 
+      # apps
       mpv
-      gnumake
       screenfetch
-      python
-      python36
       chromium
+      firefox
+      tor-browser-bundle-bin
       inkscape
       file
-
       wine
-
+      gnome3.file-roller
     ];
   };
 
