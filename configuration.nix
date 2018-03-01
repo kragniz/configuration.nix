@@ -116,8 +116,8 @@
 
   virtualisation = {
     libvirtd.enable = false;
-    docker.enable = false;
-    virtualbox.host.enable = false;
+    docker.enable = true;
+    virtualbox.host.enable = true;
   };
 
   services = {
@@ -161,7 +161,7 @@
       nssmdns = true;
     };
     tlp = {
-      enable = true;
+      enable = false;
     };
     openssh = {
       enable = true;
