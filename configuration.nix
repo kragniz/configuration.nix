@@ -180,7 +180,11 @@
 
     # for steam
     opengl.driSupport32Bit = true;
-    pulseaudio.support32Bit = true;
+
+    pulseaudio = {
+      enable = true;
+      support32Bit = true;
+    };
   };
 
   users = {
