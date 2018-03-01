@@ -167,11 +167,11 @@
       enable = true;
     };
     redshift = {
-      enable = false;
+      enable = true;
 
-      # Cambridge
-      latitude = "52.2053";
-      longitude = "0.1218";
+      # Bristol
+      latitude = "51.4545";
+      longitude = "2.5879";
     };
   };
 
