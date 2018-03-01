@@ -98,7 +98,7 @@
     enableFontDir = true;
     enableGhostscriptFonts = false;
     fonts = [
-       pkgs.terminus_font
+       pkgs.terminus_font_ttf
        pkgs.tewi-font
        pkgs.kochi-substitute-naga10
        pkgs.source-code-pro
