@@ -211,6 +211,7 @@
         "libvirtd"
         "vboxusers"
         "dialout"
+        "docker"
       ];
       home = "/home/kgz";
       createHome = true;
