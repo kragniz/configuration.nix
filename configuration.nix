@@ -89,7 +89,7 @@
       tor-browser-bundle-bin
       inkscape
       file
-      wine
+      wineStaging
       gnome3.file-roller
     ];
   };
