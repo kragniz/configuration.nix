@@ -91,6 +91,8 @@
       file
       wineStaging
       gnome3.file-roller
+      gimp
+      darktable
     ];
   };
 
