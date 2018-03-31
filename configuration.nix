@@ -176,19 +176,6 @@
       latitude = "51.4545";
       longitude = "2.5879";
     };
-    mpd = {
-      enable = true;
-      user = "kgz";
-      group = "users";
-      musicDirectory = "/home/kgz/Music";
-      dataDir = "/home/kgz/.mpd";
-      extraConfig = ''
-          audio_output {
-            type    "pulse"
-            name    "Local MPD"
-            server  "127.0.0.1"
-          }
-        '';
     };
   };
 
@@ -200,14 +187,7 @@
 
     pulseaudio = {
       enable = true;
-      systemWide = true;
       support32Bit = true;
-      tcp = {
-        enable = true;
-        anonymousClients = {
-          allowedIpRanges = [ "127.0.0.1" ];
-        };
-      };
     };
   };
 
