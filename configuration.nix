@@ -82,6 +82,8 @@
 
       # apps
       mpv
+      evince
+
       ncmpcpp
       screenfetch
       chromium
