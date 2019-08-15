@@ -146,31 +146,6 @@
       enable = true;
       layout = "gb";
 
-      xrandrHeads = [
-        {
-          output = "LVDS1";
-          monitorConfig = ''
-            Option "ignore" "true"
-          '';
-        }
-        {
-          output = "VGA1";
-          primary = true;
-          monitorConfig = ''
-            Option "Rotate" "right"
-          '';
-        }
-        {
-          output = "HDMI1";
-          monitorConfig = ''
-            Option "Rotate" "right"
-            Option "RightOf" "VGA1"
-          '';
-        }
-      ];
-
-      screenSection = "Monitor \"multihead3\"";
-
       windowManager = {
         herbstluftwm = {
           enable = true;
