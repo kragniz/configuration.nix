@@ -17,7 +17,15 @@
 
   networking = {
     hostName = "tachibana";
-    networkmanager.enable = false;
+    /*extraHosts = ''
+      127.0.0.1 tachibana
+      127.0.0.1 news.ycombinator.com
+      127.0.0.1 twitter.com
+      127.0.0.1 reddit.com
+      127.0.0.1 www.reddit.com
+    '';*/
+
+    networkmanager.enable = true;
   };
   
   powerManagement.enable = false;
