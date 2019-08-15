@@ -57,6 +57,7 @@
 
       # dev
       vim_configurable
+      emacs
       tmux
       tree
       screen
@@ -90,16 +91,23 @@
 
       # apps
       mpv
+      lollypop
+      signal-desktop
       evince
 
       ncmpcpp
+      imagemagick  # for album art
+      mpc_cli
+
       screenfetch
       chromium
       firefox
-      tor-browser-bundle-bin
+      #tor-browser-bundle-bin
       inkscape
+      blender
       file
       wineStaging
+      playonlinux
       gnome3.file-roller
       gimp
       darktable
@@ -128,7 +136,7 @@
   };
 
   virtualisation = {
-    libvirtd.enable = false;
+    libvirtd.enable = true;
     docker.enable = true;
     virtualbox.host.enable = true;
   };
