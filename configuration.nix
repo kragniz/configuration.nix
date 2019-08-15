@@ -165,7 +165,6 @@
     redshift = {
       enable = true;
     };
-    };
   };
 
   location = {
