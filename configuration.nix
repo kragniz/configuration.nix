@@ -28,7 +28,7 @@
     networkmanager.enable = true;
   };
   
-  powerManagement.enable = false;
+  powerManagement.enable = true;
 
   i18n = {
     consoleFont = "Lat2-Terminus16";
