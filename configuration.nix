@@ -164,12 +164,14 @@
     };
     redshift = {
       enable = true;
+    };
+    };
+  };
 
-      # Bristol
-      latitude = "51.4545";
-      longitude = "2.5879";
-    };
-    };
+  location = {
+    # Bristol
+    latitude = 51.4545;
+    longitude = 2.5879;
   };
 
   hardware = {
