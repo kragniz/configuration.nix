@@ -83,6 +83,7 @@
       i3lock-color
       feh
       rofi
+      powertop
 
       # email
       mutt
