@@ -145,7 +145,7 @@
   services = {
     xserver = {
       enable = true;
-      layout = "gb";
+      layout = "us";
 
       windowManager = {
         herbstluftwm = {
