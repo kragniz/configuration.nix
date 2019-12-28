@@ -25,6 +25,14 @@
       127.0.0.1 www.reddit.com
     '';*/
 
+    firewall = {
+      allowedTCPPorts = [
+        8000
+        6667
+        6697
+      ];
+    };
+
     networkmanager.enable = true;
   };
   
