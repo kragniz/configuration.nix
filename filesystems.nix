@@ -1,4 +1,8 @@
-{config, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   persist = path: {
     mountPoint = path;
     device = "/persist" + path;
@@ -49,4 +53,17 @@ in {
     "/etc/NetworkManager/system-connections" = persist "/etc/NetworkManager/system-connections";
     "/etc/machine-id" = persist "/etc/machine-id";
   };
+
+  # Add a little util for finding files which might need to be persisted
+  environment.systemPackages = with pkgs; [
+    (
+      writeShellApplication {
+        name = "find-ephemeral-files";
+        runtimeInputs = [fd];
+        text = ''
+          sudo ${fd}/bin/fd --one-file-system --base-directory / --type f --hidden --exclude "{tmp,etc/passwd,etc/sudoers}"
+        '';
+      }
+    )
+  ];
 }

@@ -51,6 +51,7 @@ in {
     git
     gnumake
     wget
+    fd
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
