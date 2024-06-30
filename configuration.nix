@@ -3,9 +3,7 @@
   lib,
   pkgs,
   ...
-}: let
-  readPasswordFile = path: lib.removeSuffix "\n" (builtins.readFile path);
-in {
+}: {
   imports = [
     ./hardware-configuration.nix
     ./filesystems.nix
@@ -35,6 +33,8 @@ in {
     pulse.enable = true;
     jack.enable = true;
   };
+
+  services.fwupd.enable = true;
 
   programs.neovim = {
     enable = true;
