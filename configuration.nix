@@ -1,230 +1,59 @@
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  readPasswordFile = path: lib.removeSuffix "\n" (builtins.readFile path);
+in {
+  imports = [
+    ./hardware-configuration.nix
+    ./filesystems.nix
+    ./users.nix
+  ];
 
-  boot = {
-    loader = {
-      grub.enable = true;
-      grub.version = 2;
-      grub.device = "/dev/sda";
-    };
-    kernelPackages = pkgs.linuxPackages_latest;
-  };
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   networking = {
-    hostName = "tachibana";
-    /*extraHosts = ''
-      127.0.0.1 tachibana
-      127.0.0.1 news.ycombinator.com
-      127.0.0.1 twitter.com
-      127.0.0.1 reddit.com
-      127.0.0.1 www.reddit.com
-    '';*/
-
-    firewall = {
-      allowedTCPPorts = [
-        8000
-        6667
-        6697
-      ];
-    };
-
+    hostName = "chinatsu";
     networkmanager.enable = true;
-  };
-  
-  powerManagement.enable = true;
-
-  i18n = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "us";
-    defaultLocale = "en_US.UTF-8";
   };
 
   time.timeZone = "Europe/London";
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowBroken = true; 
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
   };
 
-  environment = {
-    shells = [
-      "${pkgs.bash}/bin/bash"
-      "${pkgs.fish}/bin/fish"
-    ];
-    variables = {
-      BROWSER = pkgs.lib.mkOverride 0 "chromium";
-      EDITOR = pkgs.lib.mkOverride 0 "vim";
-    };
-    systemPackages = with pkgs; [
-      # $ nix-env -qaP | grep wget to find packages
-
-      # dev
-      vim_configurable
-      emacs
-      tmux
-      tree
-      screen
-      git
-      mosh
-      fish
-      vscode
-
-      python
-      python36
-      go
-      dep
-      gnumake
-      minikube
-      kubectl
-
-      # desktop
-      gnome3.gnome_terminal
-      gnome3.gnome-screenshot
-      gnome3.nautilus
-      gnome3.eog
-      gnome3.dconf
-      i3lock-color
-      feh
-      rofi
-      powertop
-
-      # email
-      mutt
-      gnupg
-      gnupg1compat
-
-      # apps
-      mpv
-      lollypop
-      signal-desktop
-      evince
-
-      ncmpcpp
-      imagemagick  # for album art
-      mpc_cli
-
-      screenfetch
-      chromium
-      firefox
-      #tor-browser-bundle-bin
-      inkscape
-      blender
-      file
-      wineStaging
-      playonlinux
-      gnome3.file-roller
-      gimp
-      darktable
-    ];
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
   };
 
-  fonts = {
-    enableCoreFonts = true;
-    enableFontDir = true;
-    enableGhostscriptFonts = false;
-    fonts = [
-       pkgs.terminus_font_ttf
-       pkgs.tewi-font
-       pkgs.kochi-substitute-naga10
-       pkgs.source-code-pro
-    ];
-  };
-  
-  programs = {
-    bash = {
-      enableCompletion = true;
-    };
-    ssh = {
-      startAgent = true;
-    };
-  };
+  environment.systemPackages = with pkgs; [
+    alejandra
+    cargo
+    firefox
+    fish
+    git
+    gnumake
+    wget
+  ];
 
-  virtualisation = {
-    libvirtd.enable = true;
-    docker.enable = true;
-    virtualbox.host.enable = true;
-  };
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  services = {
-    xserver = {
-      enable = true;
-      layout = "us";
-
-      windowManager = {
-        herbstluftwm = {
-          enable = true;
-        };
-      };
-    };
-    avahi = {
-      enable = true;
-      nssmdns = true;
-    };
-    tlp = {
-      enable = false;
-    };
-    openssh = {
-      enable = true;
-    };
-    redshift = {
-      enable = true;
-    };
-  };
-
-  location = {
-    # Bristol
-    latitude = 51.4545;
-    longitude = 2.5879;
-  };
-
-  hardware = {
-    trackpoint.emulateWheel = true;
-
-    # for steam
-    opengl.driSupport32Bit = true;
-
-    pulseaudio = {
-      enable = true;
-      support32Bit = true;
-    };
-  };
-
-  users = {
-    extraUsers.kragniz = {
-      group = "users";
-      extraGroups = [
-        "wheel"
-        "networkmanager"
-        "libvirtd"
-        "vboxusers"
-        "dialout"
-      ];
-      home = "/home/kragniz";
-      createHome = true;
-      useDefaultShell = true;
-      password = "hunter2";
-      uid = 1000;
-    };
-    extraUsers.kgz = {
-      group = "users";
-      extraGroups = [
-        "wheel"
-        "networkmanager"
-        "libvirtd"
-        "vboxusers"
-        "dialout"
-        "docker"
-      ];
-      home = "/home/kgz";
-      createHome = true;
-      useDefaultShell = true;
-      password = "hunter2";
-      uid = 1001;
-    };
-  };
+  system.stateVersion = "24.11";
 }
