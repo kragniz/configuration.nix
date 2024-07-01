@@ -20,9 +20,21 @@
 
   time.timeZone = "Europe/London";
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver = {
+    enable = true;
+    # Replicate fix until https://github.com/NixOS/nixpkgs/pull/271198 is merged
+    windowManager.session = lib.singleton {
+      name = "herbstluftwm";
+      start =
+        ''
+          ${pkgs.herbstluftwm}/bin/herbstluftwm &
+          waitPID=$!
+        '';
+    };
+    displayManager.gdm.enable = true;
+    displayManager.gdm.debug = true;
+    desktopManager.gnome.enable = true;
+  };
 
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -52,6 +64,9 @@
     gnumake
     wget
     fd
+    herbstluftwm
+    alacritty
+    feh
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
