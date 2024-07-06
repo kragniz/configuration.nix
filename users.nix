@@ -10,7 +10,10 @@ in {
 
     users.kgz = {
       isNormalUser = true;
-      extraGroups = ["wheel"];
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+      ];
       initialHashedPassword = readPasswordFile ./kgz-password-hash;
     };
 
