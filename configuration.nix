@@ -67,6 +67,8 @@
         set listchars=tab:→\ ,nbsp:␣,trail:•
 
         lua <<EOF
+          vim.lsp.inlay_hint.enable(true, { 0 })
+
           local cmp = require'cmp'
 
           cmp.setup({
@@ -84,9 +86,36 @@
             }),
             sources = cmp.config.sources({
               { name = 'nvim_lsp' },
-            }, {
+              { name = 'path' },
               { name = 'buffer' },
             })
+          })
+
+          local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+          require('lspconfig').rust_analyzer.setup({
+            on_attach=on_attach,
+            settings = {
+              ["rust-analyzer"] = {
+                imports = {
+                  granularity = {
+                    group = "module",
+                  },
+                  prefix = "self",
+                },
+                cargo = {
+                  buildScripts = {
+                    enable = true,
+                  },
+                },
+                procMacro = {
+                  enable = true
+                },
+                diagnostics = {
+                  enable = true;
+                },
+              }
+            }
           })
         EOF
       '';
@@ -95,7 +124,7 @@
           ctrlp
           rose-pine
           nvim-treesitter
-          rustaceanvim
+          nvim-lspconfig
           nvim-cmp
           cmp-nvim-lsp
         ];
@@ -111,6 +140,7 @@
 
     git
     cargo
+    rustc
     rust-analyzer
     gnumake
     alejandra
