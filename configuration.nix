@@ -93,7 +93,8 @@
 
           local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-          require('lspconfig').rust_analyzer.setup({
+          local lspconfig = require('lspconfig')
+          lspconfig.rust_analyzer.setup({
             on_attach=on_attach,
             settings = {
               ["rust-analyzer"] = {
@@ -117,6 +118,7 @@
               }
             }
           })
+          lspconfig.gopls.setup{}
         EOF
       '';
       packages.myVimPackage = with pkgs.vimPlugins; {
@@ -138,10 +140,14 @@
     wget
     fd
 
-    git
     cargo
     rustc
     rust-analyzer
+
+    go
+    gopls
+
+    git
     gnumake
     alejandra
 
