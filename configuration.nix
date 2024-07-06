@@ -28,11 +28,10 @@
     # Replicate fix until https://github.com/NixOS/nixpkgs/pull/271198 is merged
     windowManager.session = lib.singleton {
       name = "herbstluftwm";
-      start =
-        ''
-          ${pkgs.herbstluftwm}/bin/herbstluftwm &
-          waitPID=$!
-        '';
+      start = ''
+        ${pkgs.herbstluftwm}/bin/herbstluftwm &
+        waitPID=$!
+      '';
     };
     displayManager.gdm.enable = true;
     displayManager.gdm.debug = true;
@@ -105,17 +104,25 @@
   };
 
   environment.systemPackages = with pkgs; [
-    alejandra
-    cargo
     firefox
     fish
-    git
-    gnumake
     wget
     fd
+
+    git
+    cargo
+    rust-analyzer
+    gnumake
+    alejandra
+
     herbstluftwm
+    pavucontrol
     alacritty
     feh
+    maple-mono
+    powertop
+    rofi
+    htop
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
