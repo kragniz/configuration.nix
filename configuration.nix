@@ -25,14 +25,9 @@
 
   services.xserver = {
     enable = true;
-    # Replicate fix until https://github.com/NixOS/nixpkgs/pull/271198 is merged
-    windowManager.session = lib.singleton {
-      name = "herbstluftwm";
-      start = ''
-        ${pkgs.herbstluftwm}/bin/herbstluftwm &
-        waitPID=$!
-      '';
-    };
+
+    windowManager.herbstluftwm.enable = true;
+
     displayManager.gdm.enable = true;
     displayManager.gdm.debug = true;
     desktopManager.gnome.enable = true;
