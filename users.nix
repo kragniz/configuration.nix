@@ -8,11 +8,14 @@ in {
   users = {
     mutableUsers = false;
 
+    groups.nfs.gid = 70;
+
     users.kgz = {
       isNormalUser = true;
       extraGroups = [
         "wheel"
         "networkmanager"
+        "nfs"
       ];
       initialHashedPassword = readPasswordFile ./kgz-password-hash;
     };
