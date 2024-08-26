@@ -13,6 +13,7 @@
       "x-gvfs-hide"
     ];
     depends = ["/persist"];
+    neededForBoot = true;
   };
 in {
   swapDevices = [
@@ -52,6 +53,8 @@ in {
     "/var/lib/systemd/coredump" = persist "/var/lib/systemd/coredump";
     "/etc/NetworkManager/system-connections" = persist "/etc/NetworkManager/system-connections";
     "/etc/machine-id" = persist "/etc/machine-id";
+    "/var/lib/upower" = persist "/var/lib/upower";
+    "/var/lib/fwupd" = persist "/var/lib/fwupd";
   };
 
   # Add a little util for finding files which might need to be persisted
