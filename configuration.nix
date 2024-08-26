@@ -23,6 +23,9 @@
 
   time.timeZone = "Europe/London";
 
+  services.tlp.enable = true;
+  services.power-profiles-daemon.enable = false;
+
   services.xserver = {
     enable = true;
 
