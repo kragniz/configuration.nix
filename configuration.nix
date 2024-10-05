@@ -48,6 +48,8 @@
 
   services.fwupd.enable = true;
 
+  hardware.rtl-sdr.enable = true;
+
   programs.neovim = {
     enable = true;
     defaultEditor = true;
