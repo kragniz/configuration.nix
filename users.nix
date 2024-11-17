@@ -16,6 +16,7 @@ in {
         "wheel"
         "networkmanager"
         "nfs"
+        "plugdev"
       ];
       initialHashedPassword = readPasswordFile ./kgz-password-hash;
     };
