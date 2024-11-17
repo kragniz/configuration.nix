@@ -19,6 +19,13 @@
   networking = {
     hostName = "chinatsu";
     networkmanager.enable = true;
+
+    firewall = {
+      enable = true;
+
+      allowedTCPPorts = [
+      ];
+    };
   };
 
   time.timeZone = "Europe/London";
