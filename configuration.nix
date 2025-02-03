@@ -64,7 +64,7 @@
     };
   };
 
-  time.timeZone = "Europe/Brussels";
+  time.timeZone = "Europe/London";
 
   services.tlp.enable = true;
   services.power-profiles-daemon.enable = false;
