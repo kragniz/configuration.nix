@@ -55,7 +55,11 @@ in {
     "/etc/machine-id" = persist "/etc/machine-id";
     "/var/lib/upower" = persist "/var/lib/upower";
     "/var/lib/fwupd" = persist "/var/lib/fwupd";
+    "/var/lib/flatpak" = persist "/var/lib/flatpak";
   };
+
+  # don't fail because /etc/machine-id is bind mounted
+  systemd.suppressedSystemUnits = ["systemd-machine-id-commit.service"];
 
   # Add a little util for finding files which might need to be persisted
   environment.systemPackages = with pkgs; [

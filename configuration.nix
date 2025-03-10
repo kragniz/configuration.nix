@@ -11,7 +11,7 @@
   ];
 
   # Get 6.10-rc5 to fix https://bugzilla.kernel.org/show_bug.cgi?id=214649
-  boot.kernelPackages = pkgs.linuxPackages_testing;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
