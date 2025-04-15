@@ -69,10 +69,13 @@
   services.tlp.enable = true;
   services.power-profiles-daemon.enable = false;
 
+  programs.niri.enable = true;
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   services.xserver = {
     enable = true;
 
-    windowManager.herbstluftwm.enable = true;
+    windowManager.herbstluftwm.enable = false;
 
     displayManager.gdm.enable = true;
     displayManager.gdm.debug = true;
@@ -186,31 +189,70 @@
     };
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
+    # desktop bits
+    alacritty
+    arandr
+    cheese
+    chromium
+    fd
+    feh
     firefox
     fish
-    wget
-    fd
+    fractal
+    htop
 
-    cargo
-    rustc
-    rust-analyzer
+    maple-mono.truetype-autohint
 
-    go
-    gopls
-
-    git
-    gnumake
-    alejandra
-
-    herbstluftwm
+    mosh
+    mpv
+    nfs-utils
     pavucontrol
-    alacritty
-    feh
-    maple-mono
     powertop
     rofi
-    htop
+    usbutils
+    wget
+    gnome-screenshot
+    brightnessctl
+    dig
+    aerc
+    pwvucontrol
+    wofi
+
+    transmission_4-gtk
+
+    # wayland
+    swaybg
+    foot
+    neofetch
+
+    # dev
+    alejandra
+    cargo
+    git
+    gnumake
+    go
+    gopls
+    python3
+    ruff
+    rust-analyzer
+    rustc
+    uv
+    vscode.fhs
+    socat
+    opentofu
+    flatpak-builder
+    inter
+    ffmpeg-full
+
+    linuxPackages_latest.perf
+    hotspot
+
+    # fosdem stuff
+    krb5
+    opensshWithKerberos
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
