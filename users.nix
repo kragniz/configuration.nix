@@ -17,6 +17,7 @@ in {
         "networkmanager"
         "nfs"
         "plugdev"
+        "kvm"
       ];
       initialHashedPassword = readPasswordFile ./kgz-password-hash;
     };

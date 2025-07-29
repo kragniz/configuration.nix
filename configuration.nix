@@ -10,7 +10,6 @@
     ./users.nix
   ];
 
-  # Get 6.10-rc5 to fix https://bugzilla.kernel.org/show_bug.cgi?id=214649
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.loader.systemd-boot.enable = true;
@@ -74,13 +73,17 @@
 
   services.xserver = {
     enable = true;
-
-    windowManager.herbstluftwm.enable = false;
-
-    displayManager.gdm.enable = true;
-    displayManager.gdm.debug = true;
-    desktopManager.gnome.enable = true;
   };
+
+  services.xserver.windowManager.herbstluftwm.enable = false;
+
+  services.displayManager = {
+    gdm.enable = true;
+    gdm.debug = true;
+  };
+
+
+  services.desktopManager.gnome.enable = true;
 
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -95,6 +98,19 @@
   services.fwupd.enable = true;
 
   hardware.rtl-sdr.enable = true;
+
+  programs.steam.enable = true;
+
+  services.flatpak.enable = true;
+
+  services.openssh = {
+    enable = false;
+  };
+
+  programs.ssh.startAgent = true;
+
+  # TODO: disable the rest of gnome
+  services.gnome.gcr-ssh-agent.enable = false;
 
   programs.neovim = {
     enable = true;
@@ -200,14 +216,17 @@
     fd
     feh
     firefox
+    chromium
     fish
     fractal
     htop
+    amdgpu_top
 
     maple-mono.truetype-autohint
 
     mosh
     mpv
+    yt-dlp
     nfs-utils
     pavucontrol
     powertop
@@ -227,6 +246,7 @@
     swaybg
     foot
     neofetch
+    xwayland-satellite
 
     # dev
     alejandra
@@ -246,6 +266,8 @@
     flatpak-builder
     inter
     ffmpeg-full
+    qemu
+    jq
 
     linuxPackages_latest.perf
     hotspot
