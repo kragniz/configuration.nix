@@ -129,6 +129,16 @@
         set listchars=tab:→\ ,nbsp:␣,trail:•
 
         lua <<EOF
+          vim.keymap.set("n", "<Space>", "<Nop>", { silent = true })
+          vim.g.mapleader = " "
+
+          local builtin = require('telescope.builtin')
+          vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+          vim.keymap.set('n', '<C-p>', builtin.find_files, { desc = 'Telescope find files' })
+          vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+          vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+          vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+
           vim.lsp.inlay_hint.enable(true, { 0 })
 
           local cmp = require'cmp'
@@ -185,7 +195,7 @@
       '';
       packages.myVimPackage = with pkgs.vimPlugins; {
         start = [
-          ctrlp
+          telescope-nvim
           rose-pine
           nvim-treesitter
           nvim-lspconfig
@@ -268,6 +278,7 @@
     ffmpeg-full
     qemu
     jq
+    ripgrep
 
     linuxPackages_latest.perf
     hotspot
